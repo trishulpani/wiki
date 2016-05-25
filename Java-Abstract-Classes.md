@@ -106,4 +106,4 @@ void displayVolume(){
 
 #### Deja vu
 
-All this while you might have been thinking are we really discussing **Abstract Classes** or have we been talking about **Interfaces** all along? 
+All this while you might have been thinking are we really discussing **Abstract Classes** or have we been talking about **Interfaces** all along? Breathe easy - you aren't the only one. With the intriduction of default methods in JDK 8, the differences between an `Interface` and an `Abstract Class` has diminished. Having said that, to choose one over the other is a design decision. 
