@@ -3,11 +3,30 @@
 
 We mentioned in [Java Interfaces](Java-Interfaces) that Interfaces do _NOT_ allow method bodies or default implementations. Guess what - Abstract Classes **allow** you to do so! However, you still can't instantiate an Abstract Class. 
 
+Abstract classes need not necessarily have abstract methods. However, if all its methods are marked `abstract`, the class **must** be marked _abstract_.
+
+#### What is an abstract method?
+
+A method without a body (definition) is called **abstract method** and can be written as:
+
+```java
+abstract class AbstractClass{
+	public abstract boolean areWeThereYet();
+}
+
+```
+
+_Note_: The method name is terminated by a semicolon `;`. Even empty brackets `{}` would denote an empty method body and hence they aren't allowed.
+
+_Can we instantiate this class?_ Nope. We'll get to that in the next section.
+
+_Can it be subclassed?_ Yep. And that's the whole point. You **want** your subclass to _inherit_ some default behavior but it's free to override such behavior (methods). 
+
 #### So, what's the big deal?
 
-Think of Abstract classes as `incomplete classes` in the sense that they get **compiled** successfully, but are incomplete functionality wise. 
+Think of Abstract classes as `incomplete classes` in the sense that they get **compiled** successfully, but are incomplete functionality wise. Additionally, they may or may not provide some default implementations (behavior).
 
-For example, lets assume you are asked to design a class to represent a Universal Remote control for a TV. A remote control has several buttons (some are programmable).Also, assume that the Universal Remote Standard v1.0 specifies that default volume should be at level 10. So, we can design an **abstract** class as:
+For example, lets assume you are asked to design a class to represent a Universal Remote control for a TV. A remote control has several buttons (some are programmable).Also, assume that the default volume should be at level 10. So, we can design an **abstract** class as:
 
 ```java
 abstract class UniversalRemote{
@@ -106,4 +125,8 @@ void displayVolume(){
 
 #### Deja vu
 
-All this while you might have been thinking are we really discussing **Abstract Classes** or have we been talking about **Interfaces** all along? Breathe easy - you aren't the only one. With the intriduction of default methods in JDK 8, the differences between an `Interface` and an `Abstract Class` has diminished. Having said that, to choose one over the other is a design decision. 
+All this while you might have been thinking are we really discussing **Abstract Classes** or have we been talking about **Interfaces** all along? Breathe easy - you aren't the only one. With the introduction of default methods in JDK 8, the differences between an `Interface` and an `Abstract Class` has diminished further.  Choosing one over the other is a design decision. 
+
+#### So, what's the difference?
+
+Frankly there isn't much. However, some notable ones are:
