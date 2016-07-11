@@ -1,20 +1,34 @@
 # Algorithm Validate US Telephone Numbers
 
-### Problem Explanation:
+:triangular_flag_on_post: Remember to use [**`Read-Search-Ask`**](FreeCodeCamp-Get-Help) if you get stuck. Try to pair program :busts_in_silhouette: and write your own code :pencil:
 
-- The task is not that hard to understand, implementing it is the hardest part. You have a to validate an US phone number. This means there is a certain amount of numbers required, while you don't need to put the country code, you will still need the area code and use one of the few formats allowed.
+### :checkered_flag: Problem Explanation:
 
-## Hint: 1
+The task is not that hard to understand, implementing it is the hardest part. You have a to validate an US phone number. This means there is a certain amount of numbers required, while you don't need to put the country code, you will still need the area code and use one of the few formats allowed.
 
-- There is no way around it, you will need to brush up your regular expressions skills.
+#### Relevant Links
 
-## Hint: 2
+- [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [regexpal.com](http://regexpal.com/)
+- [regex101.com/](https://regex101.com/#javascript)
 
-- Try using a site like [http://regexpal.com/](http://regexpal.com/) to test the regex live while you create it.
+## :speech_balloon: Hint: 1
 
-## Hint: 3
+There is no way around it, you will need to brush up your regular expressions skills.
 
-- Start by trying to get it to validate each format from the example, each one should take a new line, once you get to select them all, then add examples that should not be selected and make sure they are not selected.
+> _try to solve the problem now_
+
+## :speech_balloon: Hint: 2
+
+Try using a site from the previous list to test the regex live while you create it.
+
+> _try to solve the problem now_
+
+## :speech_balloon: Hint: 3
+
+Start by trying to get it to validate each format from the example, each one should take a new line, once you get to select them all, then add examples that should not be selected and make sure they are not selected.
+
+> _try to solve the problem now_
 
 ## Spoiler Alert!
 
@@ -22,23 +36,19 @@
 
 **Solution ahead!**
 
-## Code Solution 1:
+## :beginner: Basic Code Solution:
 
 ```javascript
 function telephoneCheck(str) {
-
    var regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
-
    return regex.test(str);
 }
-
-// test here
 telephoneCheck("555-555-5555");
 ```
 
 :rocket: [Run Code](https://repl.it/CLo9/0)
 
-## Code Explanation:
+### Code Explanation:
 
 - `^` denotes the beginning of the string `(1\s?)?` checks allows for a "1" or a "1 " at the beginning.
 - `\d{n}` checks for exactly n number of digits so `(\(\d{3}\)|\d{3})` checks for three digits that are allowed to be between parenthesis.
@@ -46,28 +56,42 @@ telephoneCheck("555-555-5555");
 - `$` denotes the end of the string. In this case the beginning and end of the string are used in the regex to prevent it from matching any longer string that might contain a valid phone number (eg. "s 555 555 5555 a").
 - Lastly we use `regex.test(str)` to test if the string adheres to the regular expression and return `true` or `false`.
 
-## Code Solution 2:
+#### Relevant Links
+
+- [Regex Resources](JS-Regex-Resources)
+
+## :sunflower: Intermediate Code Solution:
 
 ```javascript
 function telephoneCheck(str) {
-  // Comprehensive regex from @dting 
   var re = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})$/;
-
   return re.test(str);
 }
-
-// test here
 telephoneCheck("555-555-5555");
 ```
 
 :rocket: [Run Code](https://repl.it/CLoa/0)
 
-## Code Explanation
+### Code Explanation:
 
-- This is an example of a very comprehensive and robust solution to validating US phone numbers client side. In such cases it might be much better and easier to implement this library [libphonenumber.](https://github.com/googlei18n/libphonenumber)
+This is an example of a very comprehensive and robust solution to validating US phone numbers client side. In such cases it might be much better and easier to implement this library [libphonenumber](https://github.com/googlei18n/libphonenumber).
 
-## Credits:
+#### Relevant Links
 
-If you found this page useful, you can give thanks by copying and pasting this on the main chat: **`thanks @Rafase282 @guyjoseph @dting @jhalls @crisvdkooij for your help with Algorithm: Validate US Telephone Numbers`**
+- [Regex.test()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- [libphonenumber](https://github.com/googlei18n/libphonenumber)
 
-> **NOTE:** Please add your username only if you have added any **relevant main contents** to the wiki page. (Please don't remove any existing usernames.)
+### :trophy: Credits:
+
+If you found this page useful, you may say thanks to the contributors by copying and pasting the following line in the main chat:
+
+**`Thanks @Rafase282 @guyjoseph @dting @jhalls @crisvdkooij for your help with Algorithm: Validate US Telephone Numbers`**
+
+## :clipboard: NOTES FOR CONTRIBUTIONS:
+
+- :warning: **DO NOT** add solutions that are similar to any existing solutions. If you think it is **_similar but better_**, then try to merge (or replace) the existing similar solution.
+- Add an explanation of your solution.
+- Categorize the solution in one of the following categories &mdash; **Basic**, **Intermediate** and **Advanced**. :traffic_light:
+- Please add your username only if you have added any **relevant main contents**. (:warning: **_DO NOT_** _remove any existing usernames_)
+
+> See :point_right: [**`Wiki Challenge Solution Template`**](Wiki-Template-Challenge-Solution) for reference.

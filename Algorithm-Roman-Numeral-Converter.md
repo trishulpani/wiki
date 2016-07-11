@@ -1,20 +1,35 @@
 # Algorithm Roman Numeral Converter
 
-### Problem Explanation:
+:triangular_flag_on_post: Remember to use [**`Read-Search-Ask`**](FreeCodeCamp-Get-Help) if you get stuck. Try to pair program :busts_in_silhouette: and write your own code :pencil:
 
-- You will create a program that converts an integer to a Roman Numeral.
+### :checkered_flag: Problem Explanation:
 
-## Hint: 1
+You will create a program that converts an integer to a Roman Numeral.
 
-- Creating two arrays, one with the Roman Numerals and one with the decimal equivalent for the new forms will be very helpful.
+#### Relevant Links
 
-## Hint: 2
+- [Roman Numerals](http://www.mathsisfun.com/roman-numerals.html)
+- [Array.splice()](JS-Array-Prototype-Splice)
+- [Array.indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+- [Array.join()](JS-Array-Prototype-Join)
 
-- If you add the numbers to the arrays that go before the new letter is introduced, like values for 4, 9, and 40, it will save you plenty of code.
+## :speech_balloon: Hint: 1
 
-## Hint: 3
+Creating two arrays, one with the Roman Numerals and one with the decimal equivalent for the new forms will be very helpful.
 
-- You can't have more than three consecutive Roman numerals together.
+> _try to solve the problem now_
+
+## :speech_balloon: Hint: 2
+
+If you add the numbers to the arrays that go before the new letter is introduced, like values for 4, 9, and 40, it will save you plenty of code.
+
+> _try to solve the problem now_
+
+## :speech_balloon: Hint: 3
+
+You can't have more than three consecutive Roman numerals together.
+
+> _try to solve the problem now_
 
 ## Spoiler Alert!
 
@@ -22,24 +37,18 @@
 
 **Solution ahead!**
 
-## Code Solution:
+## :beginner: Basic Code Solution:
 
 ```javascript
 var convertToRoman = function(num) {
 
-  // Create arrays with default conversion with matching indices.
   var decimalValue = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
   var romanNumeral = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
 
-  //empty string variable for the final roman number
-
   var romanized = '';
 
-  // Loop through the indices of the decimalValue array.
   for (var index = 0; index < decimalValue.length; index++) {
-    // Continue to loop while the value at the current index will fit into numCopy
     while (decimalValue[index] <= num) {
-      // Add the Roman numeral & decrease numCopy by the decimal equivalent.
       romanized += romanNumeral[index];
       num -= decimalValue[index];
     }
@@ -54,12 +63,98 @@ convertToRoman(36);
 
 :rocket: [Run Code](https://repl.it/CLmf/0)
 
-## Code Explanation:
+### Code Explanation:
 
-- Read comments on code.
+- We start off by creating two arrays with default conversion with matching indices. These are called `decimalValue` and `romanNumeral`. We also create an empty string variable, `romanized`, which will house the final roman number.
+- Using a for loop, we loop through the indicies of the `decimalValue` array. We continue to loop until while the value at the current `index` will fit into `num`.
+- Next, we add the roman numeral and decrease `num` by the decimal equivalent.
+- Finally, we return the value of `romanized`.
 
-## Credits:
+#### Relevant Links
 
-If you found this page useful, you can give thanks by copying and pasting this on the main chat: **`Thanks @Rafase282 @SaintPeter @benschac for your help with Algorithm: Roman Numeral Converter`**
+- [For Loops](JS-For-Loop)
+- [While Loops](JS-While-Loop)
 
-> **NOTE:** Please add your username only if you have added any **relevant main contents** to the wiki page. (Please don't remove any existing usernames.)
+## :sunflower: Intermediate Code Solution:
+
+```javascript
+function convertToRoman(num) {
+ var romans = ["I", "V", "X", "L", "C", "D", "M"],
+     ints = [],
+     romanNumber = [],
+     numeral = "";
+  while (num) {
+    ints.push(num % 10);
+    num = Math.floor(num/10);
+  }
+  for (i=0; i<ints.length; i++){
+      units(ints[i]);
+  }
+  function units(){
+    numeral = romans[i*2];
+    switch(ints[i]) {
+      case 1:
+        romanNumber.push(numeral);
+        break;
+      case 2:
+        romanNumber.push(numeral.concat(numeral));
+        break;
+      case 3:
+        romanNumber.push(numeral.concat(numeral).concat(numeral));
+        break;
+      case 4:
+        romanNumber.push(numeral.concat(romans[(i*2)+1]));
+        break;
+      case 5:
+        romanNumber.push(romans[(i*2)+1]);
+        break;
+      case 6:
+        romanNumber.push(romans[(i*2)+1].concat(numeral));
+        break;
+      case 7:
+        romanNumber.push(romans[(i*2)+1].concat(numeral).concat(numeral));
+        break;
+      case 8:
+        romanNumber.push(romans[(i*2)+1].concat(numeral).concat(numeral).concat(numeral));
+        break;
+      case 9:
+        romanNumber.push(romans[i*2].concat(romans[(i*2)+2]));
+      }
+    }
+  return romanNumber.reverse().join("").toString();
+}
+
+// test here
+convertToRoman(97);
+```
+
+:rocket: [Run Code](https://repl.it/C1YV)
+
+### Code Explanation:
+
+- Create an array of Roman Numerals (`romans`).
+- Use a for loop to create an array of the digits (`ints`) in the number.
+- Loop through the array of digits (base 10) and as you do, increment the Roman Numeral (base 5) index by 2 (`numeral = romans[i*2]`).
+- Within the loop, use Switch Case to push the proper Roman Numerals (backwards) onto that array.
+- Reverse the Roman Numerals array and turn it into a string.
+
+#### Relevant Links
+
+- [For Loops](JS-For-Loop)
+- [While Loops](JS-While-Loop)
+- [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+### :trophy: Credits:
+
+If you found this page useful, you can give thanks by copying and pasting this on the main chat:
+
+**`Thanks @Rafase282 @SaintPeter @benschac @mrthnmn for your help with Algorithm: Roman Numeral Converter`**
+
+## :clipboard: NOTES FOR CONTRIBUTIONS:
+
+- :warning: **DO NOT** add solutions that are similar to any existing solutions. If you think it is **_similar but better_**, then try to merge (or replace) the existing similar solution.
+- Add an explanation of your solution.
+- Categorize the solution in one of the following categories &mdash; **Basic**, **Intermediate** and **Advanced**. :traffic_light:
+- Please add your username only if you have added any **relevant main contents**. (:warning: **_DO NOT_** _remove any existing usernames_)
+
+> See :point_right: [**`Wiki Challenge Solution Template`**](Wiki-Template-Challenge-Solution) for reference.

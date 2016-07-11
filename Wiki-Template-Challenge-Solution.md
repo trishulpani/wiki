@@ -1,6 +1,6 @@
 # Algorithm Article Template
 
-> This is the template that you should follow when writing new algorithm solutions or adding content, always make sure the latest version of this templated is implemented on your [pull request](PULL_REQUEST_TEMPLATE)
+> This is the template that you should follow when writing new algorithm solutions or adding content, always make sure the latest version of this template is implemented on your [pull request](PULL_REQUEST_TEMPLATE)
 
 ##  
 
@@ -48,6 +48,8 @@ Add hint 3 here.
 // write solution code here
 ```
 
+:rocket: [Run Code](https://repl.it/URL-HERE)
+
 ### Code Explanation:
 
 Explain solution here and add any relevant links
@@ -63,6 +65,8 @@ Explain solution here and add any relevant links
 ```javascript
 // write solution code here
 ```
+
+:rocket: [Run Code](https://repl.it/URL-HERE)
 
 ### Code Explanation:
 
@@ -80,6 +84,9 @@ Explain solution here and add any relevant links
 // write solution code here
 ```
 
+:rocket: [Run Code](https://repl.it/URL-HERE)
+
+
 ### Code Explanation:
 
 Explain solution here and add any relevant links
@@ -94,9 +101,9 @@ Explain solution here and add any relevant links
 
 If you found this page useful, you may say thanks to the contributors by copying and pasting the following line in the main chat:
 
-**`thanks @username for your help with Challenge: name of the challenge`**
+**`Thanks @username for your help with Challenge: name of the challenge`**
 
-## :clipboard: NOTE TO CONTRIBUTORS:
+## :clipboard: NOTES FOR CONTRIBUTIONS:
 
 - :warning: **DO NOT** add solutions that are similar to any existing solutions. If you think it is **_similar but better_**, then try to merge (or replace) the existing similar solution.
 - Add an explanation of your solution.
